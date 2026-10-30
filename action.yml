@@ -1,0 +1,36 @@
+name: 'OpenAPI Schema Sentinel'
+description: 'Prevent breaking API changes and schema drift on every pull request.'
+author: 'Milind Chatrabhuji'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  schema-path:
+    description: 'Path to the OpenAPI 3.x specification file (JSON or YAML)'
+    required: true
+    default: 'openapi.yaml'
+  base-branch:
+    description: 'Target branch to compare against'
+    required: false
+    default: 'main'
+  fail-on-breaking:
+    description: 'Whether to fail the CI job if breaking changes are detected'
+    required: false
+    default: 'true'
+  license-key:
+    description: 'License key for private repository workflows (free for open-source)'
+    required: false
+    default: ''
+
+outputs:
+  has-breaking-changes:
+    description: 'Boolean ("true" or "false") indicating if breaking changes were detected'
+  breaking-changes-count:
+    description: 'Number of detected breaking changes'
+  diff-summary:
+    description: 'Markdown formatted summary of schema differences'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

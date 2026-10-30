@@ -1,0 +1,31 @@
+{
+  "name": "nexus-schema-sentinel",
+  "version": "1.0.0",
+  "description": "Zero-dependency GitHub Action to detect breaking OpenAPI changes & schema drift on pull requests.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist --source-map --license licenses.txt",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "actions",
+    "github-action",
+    "openapi",
+    "breaking-changes",
+    "schema-drift",
+    "api-governance"
+  ],
+  "author": "Milind Chatrabhuji",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "yaml": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@vercel/ncc": "^0.38.3",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
+  }
+}
